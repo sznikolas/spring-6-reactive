@@ -6,10 +6,12 @@ import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
+import org.springframework.data.r2dbc.config.EnableR2dbcAuditing;
 import org.springframework.r2dbc.connection.init.ConnectionFactoryInitializer;
 import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator;
 
 @Configuration
+@EnableR2dbcAuditing
 public class DatabaseConfig {
 
     @Value("classpath:/schema.sql")
