@@ -23,7 +23,7 @@ public class BeerController {
     Mono<ResponseEntity<Void>> deleteById(@PathVariable("beerId") Integer beerId){
 
         return beerService.deleteBeerById(beerId)
-                .map(response -> ResponseEntity.noContent().build());
+                .thenReturn(ResponseEntity.noContent().build());
 
     }
 
@@ -39,7 +39,7 @@ public class BeerController {
                                                  @Validated @RequestBody BeerDTO beerDTO) {
         beerService.updateBeer(beerId, beerDTO).subscribe();
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
 
     }
 

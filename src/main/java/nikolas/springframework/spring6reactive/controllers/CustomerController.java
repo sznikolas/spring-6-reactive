@@ -25,7 +25,7 @@ public class CustomerController {
     Mono<ResponseEntity<Void>> deleteById(@PathVariable("customerId") Integer customerId) {
 
         return customerService.deleteCustomerById(customerId)
-                .map(response -> ResponseEntity.noContent().build());
+                .thenReturn(ResponseEntity.noContent().build());
 
     }
 
@@ -41,7 +41,7 @@ public class CustomerController {
                                             @Validated @RequestBody CustomerDTO customerDTO) {
         customerService.updateCustomer(customerId, customerDTO).subscribe();
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
 
     }
 
