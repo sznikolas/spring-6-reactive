@@ -21,6 +21,8 @@ public class BeerController {
 
     private final BeerService beerService;
 
+
+
     @DeleteMapping(BEER_PATH_ID)
     Mono<ResponseEntity<Void>> deleteById(@PathVariable("beerId") Integer beerId){
 

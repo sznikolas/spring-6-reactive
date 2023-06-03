@@ -18,6 +18,12 @@ public class BeerServiceImpl implements BeerService {
     private final BeerMapper beerMapper;
 
     @Override
+    public Mono<BeerDTO> findFirstByBeerName(String beerName) {
+        return beerRepository.findFirstByBeerName(beerName)
+                .map(beerMapper::beerToBeerDto);
+    }
+
+    @Override
     public Mono<Void> deleteBeerById(Integer beerId) {
         return beerRepository.deleteById(beerId);
     }
